@@ -1,0 +1,60 @@
+regression_metric:
+  class_path: comet.models.RegressionMetric
+  init_args:
+    nr_frozen_epochs: 0.3
+    keep_embeddings_frozen: True
+    optimizer: AdamW
+    encoder_learning_rate: 1.0e-06
+    # learning_rate: 1.5e-05
+    learning_rate: 3.66e-06
+    # layerwise_decay: 0.95
+    layerwise_decay: 0.983
+    # encoder_model: XLM-RoBERTa
+    encoder_model: XLM-RoBERTa-XL
+    # pretrained_model: xlm-roberta-large
+    pretrained_model: facebook/xlm-roberta-xl
+    pool: avg
+    layer: mix
+    layer_transformation: sparsemax
+    layer_norm: False
+    loss: mse
+    dropout: 0.1
+    batch_size: 4
+    train_data: 
+      # - data/1720-da.csv
+
+      # Phase 1
+      # - data/DA/DA_merged_2017_2020.csv
+      - data/DA/DA_merged_2017_2020_copy.csv
+      # - data/DA/2017-da.csv # Version 26
+      # - data/DA/2018-da.csv # Version 35
+      # - data/DA/2019-da.csv # Version 36
+      # - data/DA/2020-da.csv # Version 37
+      # - data/DA/2021-da.csv
+      # - data/DA/2022-da.csv
+      
+      # Phase 2
+      # - data/DA_SQM/2022-sqm.csv
+      # - data/DARR/2017-daRR.csv #Error
+      # - data/DARR/2018-daRR.csv #Error
+      # - data/DARR/2019-daRR.csv #Error
+      # - data/DARR/2020-daRR.csv #Error
+      # - data/MLQE-PE_Corpus/._mlqe-pe.csv #Error
+      # - data/MQM/2020-mqm.csv
+      # - data/MQM/2021-mqm.csv
+      # - data/MQM/2022-mqm.csv
+    validation_data: 
+      - data/Validation_copy/wmt-ende-newstest21.csv
+      - data/Validation_copy/wmt-enru-newstest21.csv
+      - data/Validation_copy/wmt-zhen-newstest21.csv
+    # hidden_sizes:
+    #   - 3072
+      # - 1024
+    hidden_sizes:
+      - 2560
+      - 1280
+    activations: Tanh
+    
+trainer: ../trainer.yaml
+early_stopping: ../early_stopping.yaml
+model_checkpoint: ../model_checkpoint.yaml

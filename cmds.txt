@@ -1,0 +1,17 @@
+From scratch/Comet Dir
+
+For host name just type ```hostname``` into bash shell
+cedar1.int.cedar.computecanada.ca
+
+source error-in-translation-comet/bin/activate
+
+comet-train --cfg configs/models/regression_model.yaml
+
+salloc --time=1:00:00 --cpus-per-task=2 --mem=32G --gpus-per-node=v100l:1 --mail-type=ALL --mail-user=mekaelwasti@gmail.com
+
+salloc --time=18:00:00 --cpus-per-task=4 --mem=32G --gpus-per-node=v100l:2 --mail-type=ALL --mail-user=mekaelwasti@gmail.com
+
+Narval is generous but offline inside the alloc job:
+salloc --time=168:00:00 --cpus-per-task=4 --mem=64G --gpus-per-node=1 --mail-type=ALL --mail-user=mekaelwasti@gmail.com
+
+comet-train --cfg configs/models/regression_model.yaml --seed_everything 12 --load_from_checkpoint lightning_logs/version_27/checkpoints/epoch=1-step=25660-val_kendall=0.276.ckpt  --strict_load

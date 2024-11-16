@@ -1,0 +1,10 @@
+Loading data/DA/2017-da.csv.                                                                                                                                
+Epoch 0:  30%|███████████████████████████▌                                                                | 13750/45832 [27:26<1:04:02,  8.35it/s, v_num=26]Encoder model fine-tuning
+Epoch 0: 100%|████████████████████████████████████| 45832/45832 [2:27:20<00:00,  5.18it/s, v_num=26, val_kendall=0.269, val_spearman=0.358, val_pearson=0.317, val_acc=0.639]/scratch/mekael/Comet/error-in-translation-comet/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/logger_connector/result.py:431: It is recommended to use `self.log('train_loss', ..., sync_dist=True)` when logging on epoch level in distributed setting to accumulate the metric across devices.
+Epoch 0: 100%|████████████████████████████████████| 45832/45832 [2:27:20<00:00,  5.18it/s, v_num=26, val_kendall=0.269, val_spearman=0.358, val_pearson=0.317, val_acc=0.639]Epoch 0, global step 11458: 'val_kendall' reached 0.26895 (best 0.26895), saving model to '/scratch/mekael/Comet/lightning_logs/version_26/checkpoints/epoch=0-step=11458-val_kendall=0.269.ckpt' as top 2
+Epoch 1: 100%|████████████████████████████████████| 45832/45832 [2:39:05<00:00,  4.80it/s, v_num=26, val_kendall=0.268, val_spearman=0.357, val_pearson=0.324, val_acc=0.645]Epoch 1, global step 22916: 'val_kendall' reached 0.26820 (best 0.26895), saving model to '/scratch/mekael/Comet/lightning_logs/version_26/checkpoints/epoch=1-step=22916-val_kendall=0.268.ckpt' as top 2
+Epoch 2: 100%|████████████████████████████████████| 45832/45832 [2:43:24<00:00,  4.67it/s, v_num=26, val_kendall=0.265, val_spearman=0.352, val_pearson=0.320, val_acc=0.654]Epoch 2, global step 34374: 'val_kendall' was not in top 2  
+
+Stopped early
+
+Now training on top of this with 2018 set

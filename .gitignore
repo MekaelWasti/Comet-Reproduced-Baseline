@@ -1,0 +1,5 @@
+# Ignore large data files
+data/
+
+# Ignore virtual environment
+error-in-translation-comet/
